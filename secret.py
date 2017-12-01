@@ -1,0 +1,1 @@
+FLICKR_KEY = "09aa35a6c9fdb7af846cbb789e17af8c"
