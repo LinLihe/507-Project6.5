@@ -52,7 +52,7 @@ def word(new_word):
     return word
 
 ## PART 2: Edit the following route so that the photo_tags.html template will render
-@app.route('/<tag>/<num>')
+@app.route('/flickrphotos/<tag>/<num>')
 def photo_titles(tag, num):
     # HINT: Trying out the flickr accessing code in another file and seeing what data you get will help debug what you need to add and send to the template!
     # HINT 2: This is almost all the same kind of nested data investigation you've done before! # TODO: fill in a flickr key
@@ -64,6 +64,7 @@ def photo_titles(tag, num):
     params['tag_mode'] = 'all'
     params['per_page'] = num
     params['tags'] = tag
+    params['max'] = 1
     response_obj = requests.get(baseurl, params=params)
     trimmed_text = response_obj.text[14:-1]
     flickr_data = json.loads(trimmed_text)
